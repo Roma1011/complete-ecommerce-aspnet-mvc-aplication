@@ -7,7 +7,7 @@ namespace eTickets.Controllers
 	{
 		private readonly AppDbContext _context;
 
-		public ProducerController(AppDbContext context)
+		public CinemaController(AppDbContext context)
 		{
 			_context = context;
 		}

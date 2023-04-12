@@ -1,5 +1,6 @@
 ﻿using eTickets.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace eTickets.Controllers
 {
@@ -13,9 +14,9 @@ namespace eTickets.Controllers
 		}
 
 		public IActionResult Index()
-		{
-
-			return View();
+        {
+            var data = _context.Actors.ToList();
+			return View(data);
 		}
 	}
 }

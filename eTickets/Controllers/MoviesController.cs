@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTickets.Controllers
 {
-	public class MovieController : Controller
+	public class MoviesController : Controller
 	{
 		private readonly AppDbContext _context;
 
-		public MovieController(AppDbContext context)
+		public MoviesController(AppDbContext context)
 		{
 			_context = context;
 		}

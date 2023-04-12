@@ -5,13 +5,14 @@
 @{
     ViewData["Title"] = "List of Actors";
 }
-@*Write code*@
+
+@*Write HTML code*@
 
 <div class="row">
     <div class="col-md-8 offset-md-2">
         <table class="table">
             <thead>
-            <tr>
+                <tr class="text-center">
                 <th> @Html.DisplayNameFor(model=>model.ProfilePictureURL) </th>
                 <th> @Html.DisplayNameFor(model=>model.Fullname) </th>
                 <th> @Html.DisplayNameFor(model=>model.Bio) </th>
@@ -25,7 +26,7 @@
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.Fullname" style="max-width:150px"/>
+                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.Fullname" height="200px" width="200px"/>
                         </td>
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem=>item.Fullname)

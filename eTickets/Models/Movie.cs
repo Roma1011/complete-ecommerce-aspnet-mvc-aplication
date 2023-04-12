@@ -9,13 +9,20 @@ namespace eTickets.Models
 		[Key]
 		public int Id { get; set; }
 
-		public string Name { get; set; }
-		public string Description { get; set; }
-		public Double Price { get; set; }
-		public string ImageUrl { get; set; }
-		public DateTime StratDate { get; set; }
-		public DateTime EmdDate { get; set; }
-		public MovieCategory MovieCategory { get; set; }
+        [Display(Name = "Movie Name")]
+        public string Name { get; set; }
+        [Display(Name = "Movie Description")]
+        public string Description { get; set; }
+        [Display(Name = "Movie Price")]
+        public Double Price { get; set; }
+        [Display(Name = "Movie Image")]
+        public string ImageUrl { get; set; }
+        [Display(Name = "Movie Start Date")]
+        public DateTime StratDate { get; set; }
+        [Display(Name = "Movie End Date")]
+        public DateTime EmdDate { get; set; }
+        [Display(Name = "Movie Category")]
+        public MovieCategory MovieCategory { get; set; }
 		//Relationship // Actor can play in many movies
 		public List<Actor_Movie> Actor_Movies { get; set; }
 		//Cinema // movie can be purchased from a single cinema

@@ -84,7 +84,7 @@ namespace eTickets.Data
                             Price = 39.50,
                             ImageUrl = "https://th.bing.com/th/id/R.8de71284a3ca7aa6f7ba5e26bfb9bfcf?rik=r9j3aJVYt8Rsaw&pid=ImgRaw&r=0",
                             StratDate = DateTime.Now.AddDays(3),
-                            EmdDate = DateTime.Now.AddDays(20),
+                            EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Comedy
@@ -97,7 +97,7 @@ namespace eTickets.Data
                             Price = 39.50,
                             ImageUrl = "https://th.bing.com/th/id/OIP.M8_HvT-Rt8TrEvx9_EsaKwHaKe?pid=ImgDet&rs=1",
                             StratDate = DateTime.Now.AddDays(3),
-                            EmdDate = DateTime.Now.AddDays(20),
+                            EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 2,
                             ProducerId = 2,
                             MovieCategory = MovieCategory.Comedy

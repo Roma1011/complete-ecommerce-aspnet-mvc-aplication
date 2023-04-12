@@ -20,7 +20,7 @@ namespace eTickets.Models
         [Display(Name = "Movie Start Date")]
         public DateTime StratDate { get; set; }
         [Display(Name = "Movie End Date")]
-        public DateTime EmdDate { get; set; }
+        public DateTime EndDate { get; set; }
         [Display(Name = "Movie Category")]
         public MovieCategory MovieCategory { get; set; }
 		//Relationship // Actor can play in many movies

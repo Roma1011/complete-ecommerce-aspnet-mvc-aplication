@@ -42,7 +42,7 @@ namespace eTickets.Controllers
         {
             var actorDetails =await _actorsService.GetById(id);
             if (actorDetails == null) 
-                return View("Empty");
+                return View("NotFound");
 
             return View(actorDetails);
         }
@@ -67,5 +67,26 @@ namespace eTickets.Controllers
             await _actorsService.Update(id,actor);
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var actorDetails = await _actorsService.GetById(id);
+            if (actorDetails == null)
+                return View("NotFound");
+
+            return View(actorDetails);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var actorDetails = await _actorsService.GetById(id);
+            if (actorDetails == null)
+                return View("NotFound");
+
+            await _actorsService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

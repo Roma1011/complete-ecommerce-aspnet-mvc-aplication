@@ -11,6 +11,7 @@ namespace eTickets.Services
         {
             _appDbContext=appDbContext;
         }
+
         public async Task<IEnumerable<Actor>> GetAll()
         {
             var result = await _appDbContext.Actors.ToListAsync();
@@ -22,9 +23,10 @@ namespace eTickets.Services
             throw new NotImplementedException();
         }
 
-        public Task Add(Actor actor)
+        public async Task Add(Actor actor)
         {
-            throw new NotImplementedException();
+            _appDbContext.Actors.Add(actor);
+           await _appDbContext.SaveChangesAsync();
         }
 
         public Task<Actor> Update(int id, Actor newActor)

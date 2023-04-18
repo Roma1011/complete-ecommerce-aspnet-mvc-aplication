@@ -106,9 +106,9 @@ namespace eTickets.Data
                     context.SaveChanges();
                 }
                 //actors & movies
-                if (!context.Actor_Movies.Any())
+                if (!context.Actors_Movies.Any())
                 {
-                    context.Actor_Movies.AddRange(new List<Actor_Movie>()
+                    context.Actors_Movies.AddRange(new List<Actor_Movie>()
                     {
                         new Actor_Movie()
                         {

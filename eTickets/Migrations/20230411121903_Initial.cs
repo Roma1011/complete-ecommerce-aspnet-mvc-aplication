@@ -90,7 +90,7 @@ namespace eTickets.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Actor_Movies",
+                name: "Actors_Movies",
                 columns: table => new
                 {
                     MovieId = table.Column<int>(type: "int", nullable: false),
@@ -115,7 +115,7 @@ namespace eTickets.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Actor_Movies_MovieId",
-                table: "Actor_Movies",
+                table: "Actors_Movies",
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
@@ -133,7 +133,7 @@ namespace eTickets.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Actor_Movies");
+                name: "Actors_Movies");
 
             migrationBuilder.DropTable(
                 name: "Actors");

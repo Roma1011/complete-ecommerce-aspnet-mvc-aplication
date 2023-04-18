@@ -24,7 +24,7 @@ namespace eTickets.Models
         [Display(Name = "Movie Category")]
         public MovieCategory MovieCategory { get; set; }
 		//Relationship // Actor can play in many movies
-		public List<Actor_Movie> Actor_Movies { get; set; }
+		public List<Actor_Movie> Actors_Movies { get; set; }
 		//Cinema // movie can be purchased from a single cinema
 		public int CinemaId { get; set; }
 		[ForeignKey("CinemaId")]

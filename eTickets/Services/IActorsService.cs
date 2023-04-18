@@ -1,13 +1,10 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data.Base;
+using eTickets.Models;
 
 namespace eTickets.Services
 {
-    public interface IActorsService
+    public interface IActorsService:IEntityBaseRepository<Actor>
     {
-        Task<IEnumerable<Actor>> GetAll();
-        Task<Actor> GetById(int id);
-        Task Add(Actor actor);
-        Task<Actor> Update(int id, Actor newActor);
-        Task Delete(int id);
+
     }
 }

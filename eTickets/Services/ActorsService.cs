@@ -18,14 +18,15 @@ namespace eTickets.Services
             return result;
         }
 
-        public Task<Actor> GetById(int id)
+        public async Task<Actor> GetById(int id)
         {
-            throw new NotImplementedException();
+            var result = await _appDbContext.Actors.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
         public async Task Add(Actor actor)
-        {
-            _appDbContext.Actors.Add(actor);
+        { 
+            await _appDbContext.Actors.AddAsync(actor);
            await _appDbContext.SaveChangesAsync();
         }
 

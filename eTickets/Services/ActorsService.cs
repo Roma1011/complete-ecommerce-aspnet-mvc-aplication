@@ -30,9 +30,11 @@ namespace eTickets.Services
            await _appDbContext.SaveChangesAsync();
         }
 
-        public Task<Actor> Update(int id, Actor newActor)
+        public async Task<Actor> Update(int id, Actor newActor)
         {
-            throw new NotImplementedException();
+            _appDbContext.Update(newActor);
+            await _appDbContext.SaveChangesAsync();
+            return newActor;
         }
 
         public Task Delete(int id)

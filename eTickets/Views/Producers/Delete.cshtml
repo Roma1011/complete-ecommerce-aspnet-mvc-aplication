@@ -1,10 +1,10 @@
 ﻿@*Model*@
-@model Actor
+@model Producer
 
 
 @*C# View Data*@
 @{
-    ViewData["Title"] = "Details of the actor";
+    ViewData["Title"] = "Delete a producer";
 }
 
 
@@ -14,7 +14,7 @@
     <div class="col-md-8 offset-2">
         <p>
             <h1>
-                Details for @Model.Fullname
+                Delete for @Model.Fullname
             </h1>
         </p>
         <div class="row">
@@ -38,7 +38,10 @@
                     <span asp-validation-for="Bio" class="text-danger"></span>
                 </div>
                 <div class="form-group m-3">
-                    <a class="btn btn-outline-success float-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Confirm" class="btn btn-danger float-end" />
+                    </form>
                     <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                 </div>
             </div>

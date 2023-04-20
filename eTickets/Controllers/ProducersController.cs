@@ -1,12 +1,12 @@
 ﻿using eTickets.Data;
 using eTickets.Models;
-using eTickets.Services;
+using eTickets.Services.Producers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
-	public class ProducersController : Controller
+    public class ProducersController : Controller
 	{
 		private readonly IProducerService _service;
 

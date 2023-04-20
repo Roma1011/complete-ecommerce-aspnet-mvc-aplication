@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 using eTickets.Models;
-using eTickets.Services;
+using eTickets.Services.Actors;
 
 namespace eTickets.Controllers
 {
-	public class ActorsController : Controller
+    public class ActorsController : Controller
 	{
 		private readonly IActorsService _actorsService;
 

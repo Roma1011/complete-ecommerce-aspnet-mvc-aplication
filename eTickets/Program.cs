@@ -1,5 +1,8 @@
 using eTickets.Data;
 using eTickets.Services;
+using eTickets.Services.Actors;
+using eTickets.Services.Cinemas;
+using eTickets.Services.Producers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IProducerService, ProducerService>();
+builder.Services.AddScoped<ICinemasService, CinemaService>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

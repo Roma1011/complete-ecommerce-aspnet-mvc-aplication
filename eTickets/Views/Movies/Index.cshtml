@@ -55,7 +55,10 @@
                    <div class="col-md-12">
                        <div class="card-footer">
                            <p class="card-text">
-                               <a class="btn btn-outline-primary float-right"> <i class="bi bi-eye-fill"></i>Show Detals</a>
+                               <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route="@item.Id">
+                                   <i class="bi bi-eye-fill"></i>
+                                   Show Detals
+                               </a>
                                 <a class="btn btn-success text-white"> <i class="bi bi-cart-plus"></i>Show to Cart (Price @item.Price.ToString("c"))</a>
                            </p>
                        </div>

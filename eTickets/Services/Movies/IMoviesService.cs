@@ -8,5 +8,8 @@ namespace eTickets.Services.Movies
     {
         Task<Movie> GetMovieById(int id);
         Task<MovieDropdownsVm> GetMovieDropdownsValues();
+        Task AddMovie(MovieVM data);
+
+        Task UpdateMovie(MovieVM data);
     }
 }

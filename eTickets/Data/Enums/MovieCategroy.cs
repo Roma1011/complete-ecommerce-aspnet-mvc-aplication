@@ -1,10 +1,16 @@
-﻿namespace eTickets.Data.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace eTickets.Data.Enums
 {
     public enum MovieCategory
     {
-        Action = 1,
+        [Display(Name = "Action")]
+        Action=0,
+        [Display(Name = "Comedy")]
         Comedy,
+        [Display(Name = "Drama")]
         Drama,
-        Documentary
+        [Display(Name = "Horror")]
+        Horror
     }
 }

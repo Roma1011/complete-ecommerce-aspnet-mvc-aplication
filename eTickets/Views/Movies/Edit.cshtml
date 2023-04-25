@@ -77,21 +77,25 @@
                     <div class="col-md-4 offset-4 text-center">
                         <img width="100%" id="ImageUrlPreview"/>
                     </div>
-                    <div class="form-group m-3">
-                        <input type="submit" value="Update" class="btn btn-outline-success float-right"/>
-                        <form asp-action="Delete" asp-route-id="@Model.Id" asp-controller="Movies" method="post">
-                            <input type="hidden" asp-for="Id" value="@Model.Id"/>
-                            <button type="submit" value="Delete" class="btn btn-danger float-end">Delete</button>
-                        </form>
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
-                    </div>
+
                 </form>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-group m-3">
+                        <input type="submit" value="Update" class="btn btn-outline-success me-2"/>
+                        <a class="btn btn-outline-secondary float-end" asp-action="Index">Show All</a>
+                    </div>
+                    <form asp-route-id="@Model.Id" asp-action="Delete" method="post" asp-controller="Movies" class="d-inline">
+                        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+                        <input type="submit" value="Delete" class="btn btn-outline-danger float-end"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 @section Scripts
 {
+
     <script>
         $("#ImageUrl").on("change",function(){
             var output = document.getElementById("ImageUrlPreview");

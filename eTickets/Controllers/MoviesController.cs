@@ -11,17 +11,29 @@ namespace eTickets.Controllers
 	public class MoviesController : Controller
 	{
 		private readonly IMoviesService _service;
-        private readonly IActorsService _actorsService;
         public MoviesController(IMoviesService service,IActorsService actorsService)
 		{
             _service = service;
-            _actorsService = actorsService;
-		}
+        }
 		public async Task<IActionResult> Index()
         {
             var allMovies =await _service.GetAll(x=>x.Cinema);
 			return View(allMovies);
 		}
+
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allMovies = await _service.GetAll(x => x.Cinema);
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filter=allMovies.Where(n=>n.Name.Contains(searchString)|| n.Description.Contains(searchString)).ToList();
+
+                return View("Index",filter);
+            }
+
+            return View("Index",allMovies);
+        }
 
         public async Task<IActionResult> Details(int id)
         {
@@ -111,11 +123,11 @@ namespace eTickets.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var actorDetails = await _actorsService.GetById(id);
-            if (actorDetails == null)
+            var movieDetails = await _service.GetMovieById(id);
+            if (movieDetails == null)
                 return View("NotFound");
 
-            await _actorsService.Delete(id);
+            await _service.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -3,7 +3,7 @@
 @model eTickets.Data.ModelView.MovieVM
 
 @{
-    ViewData["Title"] = "Update Movie";
+    ViewData["Title"] = "Add Movie";
 }
 
 <div class="row">
@@ -13,7 +13,7 @@
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Edit">
+                <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="row">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label asp-for="ImageUrl" class="control-label"></label>
-                                <input asp-for="ImageUrl" class="form-control" />
+                                <input asp-for="ImageUrl" class="form-control" id="ImageUrl" />
                                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
                             </div>
                         </div>
@@ -89,17 +89,12 @@
 @section Scripts
 {
     <script>
-        $(document).Ready(function(){
-
-            var output = document.GetElementById("ImageUrlPreview");
-            output.src=$(this).val();
-
+        $(document).ready(function(){
+            $("#ImageUrl").on("change",function(){
+                console.log("sad")
+                var output = document.getElementById("ImageUrlPreview");
+                output.src=$(this).val();
+            })
         })
-
-        $("#ImageUrl").on("change",function(){
-            var output = document.getElementById("ImageUrlPreview");
-            output.src=$(this).val();
-        })
-    
     </script>
 }

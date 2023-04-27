@@ -25,7 +25,18 @@ namespace eTickets.Data
 				.WithMany(am => am.Actors_Movies)
 				.HasForeignKey(m => m.ActorId);
 
-			base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.OrderItems)
+                .WithOne(o => o.Order)
+                .HasForeignKey(k => k.OrderId);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(o => o.Movie)
+                .WithMany()
+                .HasForeignKey(o => o.MovieId);
+
+
+            base.OnModelCreating(modelBuilder);
 		}
 
 		public DbSet<Actor> Actors { get; set; }
@@ -33,5 +44,9 @@ namespace eTickets.Data
 		public DbSet<Actor_Movie> Actors_Movies { get; set; }
 		public DbSet<Movie> Movies { get; set; }
 		public DbSet<Cinema> Cinemas { get; set; }
+
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShopipingCardItem> ShopipingCardItems { get; set; }
 	}
 }

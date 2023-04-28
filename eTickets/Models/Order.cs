@@ -10,6 +10,6 @@ namespace eTickets.Models
 
         public string UserId { get; set; }
 
-        public  ICollection<OrderItem> OrderItems { get; set; }
+        public  ICollection<OrderItem> OrderItems { get; set; }=new List<OrderItem>();
     }
 }

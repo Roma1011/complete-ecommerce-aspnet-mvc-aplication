@@ -1,6 +1,7 @@
 using eTickets.Data;
 using eTickets.Services;
 using eTickets.Services.Actors;
+using eTickets.Services.Cart;
 using eTickets.Services.Cinemas;
 using eTickets.Services.Movies;
 using eTickets.Services.Producers;
@@ -14,7 +15,9 @@ builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IProducerService, ProducerService>();
 builder.Services.AddScoped<ICinemasService, CinemaService>();
 builder.Services.AddScoped<IMoviesService, MovieService>();
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<IShopingCart, ShoppingCart>();
+builder.Services.AddSession();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -33,7 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

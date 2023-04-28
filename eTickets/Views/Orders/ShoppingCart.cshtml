@@ -4,8 +4,6 @@
     ViewData["Title"] = "Shoping cart summary";
 }
 
-
-
 <div class="row">
     <div class="col-md-8 offset-2">
         <div class="text-center">
@@ -23,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.ShoppingCart.ShopipingCartItems)
+                @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
                 {
                     <tr>
                         <td class="align-middle">@item.Amount</td>

@@ -9,15 +9,16 @@ namespace eTickets.Controllers
     {
         private readonly IMoviesService _moviesService;
         private readonly IShopingCart _shoppingCartService;
-        public OrdersController(IMoviesService moviesService, ShoppingCart shoppingCartService)
+        public OrdersController(IMoviesService moviesService, IShopingCart shoppingCartService)
         {
-            _moviesService= moviesService;
+            _moviesService = moviesService;
             _shoppingCartService = shoppingCartService;
         }
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> ShoppingCart()
         {
             var items =await _shoppingCartService.GetShoppingCartItems();
-            _shoppingCartService.ShopipingCartItems = items;
+            _shoppingCartService.ShoppingCartItems = items;
 
             var response = new ShoppingCartVM()
             {

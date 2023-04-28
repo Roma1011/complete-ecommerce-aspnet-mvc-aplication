@@ -18,14 +18,14 @@ namespace eTickets.Services.Cart
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
-        public ShoppingCart GetShoppingCart()
-        {
-            var session = _httpContextAccessor.HttpContext.Session;
-            var cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
-            session.SetString("CartId", cartId);
+        //public ShoppingCart GetShoppingCart()
+        //{
+        //    var session = _httpContextAccessor.HttpContext.Session;
+        //    var cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
+        //    session.SetString("CartId", cartId);
 
-            return new ShoppingCart(_context, _httpContextAccessor) { ShoppingCartId = cartId };
-        }
+        //    return new ShoppingCart(_context, _httpContextAccessor) { ShoppingCartId = cartId };
+        //}
 
         public async Task AddItemToCart(Movie movie)
         {

@@ -17,7 +17,7 @@ builder.Services.AddScoped<ICinemasService, CinemaService>();
 builder.Services.AddScoped<IMoviesService, MovieService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IShopingCart, ShoppingCart>();
-builder.Services.AddSession();
+//builder.Services.AddSession();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -36,7 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseSession();
+//app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

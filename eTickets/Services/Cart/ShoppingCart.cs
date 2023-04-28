@@ -1,32 +1,29 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data;
+using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace eTickets.Data.Cart
+namespace eTickets.Services.Cart
 {
-    public class ShoppingCart
+    public class ShoppingCart: IShopingCart
     {
-        public AppDbContext _context { get; set; }
-        public string ShopingartId { get; set; }
+        public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShopipingCartItems { get; set; }
-
-
+        public AppDbContext _context { get; set; }
         public ShoppingCart(AppDbContext context)
         {
-            _context=context;
+            _context = context;
         }
-
-
         public async Task AddItemToCart(Movie movie)
         {
-            var shoppingCartItem =await 
+            var shoppingCartItem = await
                 _context.ShopipingCardItems.FirstOrDefaultAsync(n =>
-                    n.Movie.Id == movie.Id && n.ShoppingCartId == ShopingartId);
+                    n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem()
                 {
-                    ShoppingCartId = ShopingartId,
+                    ShoppingCartId = ShoppingCartId,
                     Movie = movie,
                     Amount = 1
                 };
@@ -43,12 +40,12 @@ namespace eTickets.Data.Cart
         public async Task<List<ShoppingCartItem>> GetShoppingCartItems()
         {
             return ShopipingCartItems ?? (ShopipingCartItems = await _context.ShopipingCardItems
-                .Where(n => n.ShoppingCartId == ShopingartId).Include(n => n.Movie).ToListAsync());
+                .Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Movie).ToListAsync());
         }
 
         public async Task<double> GetShoppingCartTotal()
         {
-            var total = await _context.ShopipingCardItems.Where(n=>n.ShoppingCartId==ShopingartId).Select(n=>n.Movie.Price*n.Amount).SumAsync();
+            var total = await _context.ShopipingCardItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).SumAsync();
 
             return total;
         }
@@ -57,7 +54,7 @@ namespace eTickets.Data.Cart
         {
             var shoppingCartItem = await
                 _context.ShopipingCardItems.FirstOrDefaultAsync(n =>
-                    n.Movie.Id == movie.Id && n.ShoppingCartId == ShopingartId);
+                    n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem != null)
             {
